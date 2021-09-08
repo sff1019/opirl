@@ -1,14 +1,30 @@
-# OPIRL: Sample  Efficient  Inverse  Reinforcement  Learning  via Off-Policy  Distribution  Matching
+# OPIRL: Sample  Efficient Off-Policy Inverse  Reinforcement  Learning  via Distribution  Matching
 
-code be released soon
+Official implementation for OPIRL: Off-Policy Inverse Reinforcement Learning.
 
 ## Installation
 
-- Each task's experts are provided on Google Drive
+Run the following command to install all Python dependencies:
+```
+$ pip install -r requirements.txt
+```
 
-## File Structure
+Other dependencies:
+- Python 3.7+
+- TensorFlow 2.4+
+- CUDA=11.0
+- cuDNN=8.0
+
+- Experts/reward functions are provided on [Google Drive](https://drive.google.com/file/d/1Hq5Iu8oMvA9bx_fvrUmburtevjLFhKit/view?usp=sharing)
 
 ## Run Experiments
+
+First, unzip the expert/reward files from Google Drive.  
+Then, to simply run experiments on MuJoCo tasks, run the bash scripts in `/scripts` directory.   
+E.g.
+```
+$ sh ./scripts/run_halfcheetah.sh
+```
 
 ## Others
 
