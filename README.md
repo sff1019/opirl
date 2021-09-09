@@ -6,11 +6,12 @@ Official implementation for OPIRL: Off-Policy Inverse Reinforcement Learning.
 
 Run the following command to install all Python dependencies:
 ```
+$ python setup.py install
 $ pip install -r requirements.txt
 ```
 
 Other dependencies:
-- Python 3.7+
+- Python 3.8+
 - TensorFlow 2.4+
 - CUDA=11.0
 - cuDNN=8.0
