@@ -6,7 +6,7 @@ Official implementation for OPIRL: Off-Policy Inverse Reinforcement Learning.
 
 Run the following command to install all Python dependencies:
 ```
-$ python setup.py install
+$ pip install -e .
 $ pip install -r requirements.txt
 ```
 
