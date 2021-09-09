@@ -78,7 +78,6 @@ class Trainer(BaseTrainer):
             self._model_dir = os.path.join(self._output_dir, 'models')
             if not os.path.exists(self._model_dir):
                 os.makedirs(self._model_dir)
-            self._set_rl_check_point(self._model_dir)
 
     def __call__(self):
         episode_return = 0

@@ -1,38 +1,11 @@
 import argparse
-import os
 
 import numpy as np
-import tensorflow as tf
 
 
 class BaseTrainer:
     def __init__(self):
         pass
-
-    def _set_irl_check_point(self, model_dir):
-        # Save and restore model
-        self._checkpoint = tf.train.Checkpoint(imitator=self.imitator,
-                                               reward_fn=self.imitator.rew_net,
-                                               policy=self.policy,
-                                               actor=self.policy.actor)
-
-        self.checkpoint_manager = tf.train.CheckpointManager(
-            self._checkpoint, directory=model_dir, max_to_keep=5)
-
-    def _set_rl_check_point(self, model_dir):
-        # Save and restore model
-        self._checkpoint = tf.train.Checkpoint(policy=self.policy)
-
-        self.checkpoint_manager = tf.train.CheckpointManager(
-            self._checkpoint, directory=model_dir, max_to_keep=5)
-
-    def _restore_checkpoint(self, model_dir):
-        self._set_irl_check_point(model_dir)
-        if model_dir is not None:
-            assert os.path.isdir(model_dir)
-            self._latest_path_ckpt = tf.train.latest_checkpoint(model_dir)
-            self._checkpoint.restore(self._latest_path_ckpt).expect_partial()
-            print('restored!!')
 
     def _set_from_args(self, args):
         self._algo = args.algo

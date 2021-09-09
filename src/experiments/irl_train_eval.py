@@ -87,17 +87,15 @@ class IRLTrainer(BaseTrainer):
         self._output_dir = os.path.join(args.save_dir, time_str)
         if not os.path.exists(self._output_dir):
             os.makedirs(self._output_dir)
+
+        # Create directory to save final models
         if self._save_model:
             self._model_dir = os.path.join(self._output_dir, 'models')
             if not os.path.exists(self._model_dir):
                 os.makedirs(self._model_dir)
 
-            self._set_irl_check_point(self._model_dir)
-        if self._load_model_dir is not None:
-            self._restore_checkpoint(self._load_model_dir)
-
+        # Set up loggers
         self.logger = Logger(self._output_dir, args, agent=args.algo)
-        print('self._save_test_movie', self._save_test_movie)
         self.video_recorder = VideoRecorder(
             self._output_dir if self._save_test_movie else None)
 
@@ -195,12 +193,6 @@ class IRLTrainer(BaseTrainer):
             if done:
                 self.logger.dump(total_timesteps, dump_to_csv=True)
 
-            if self._save_model and total_timesteps % self._save_model_interval == 0:
-                self.checkpoint_manager.save()
-
-        # Finalize training
-        if self._save_model:
-            self.checkpoint_manager.save()
         self.logger.dump(total_timesteps, flush_tb=True, dump_to_csv=True)
 
     def evaluate(self, total_timesteps, num_episodes=20):
