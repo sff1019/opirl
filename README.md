@@ -1,6 +1,7 @@
 # OPIRL: Sample  Efficient Off-Policy Inverse  Reinforcement  Learning  via Distribution  Matching
 
-Official implementation for [OPIRL: Sample Efficient Off-Policy Inverse Reinforcement Learning via Distribution Matching](https://arxiv.org/abs/2109.04307).
+Official implementation for [OPIRL: Sample Efficient Off-Policy Inverse Reinforcement Learning via Distribution Matching](https://arxiv.org/abs/2109.04307).  
+Accepted to IEEE International Conference on Robotics and Automation (ICRA) 2022.
 
 ## Installation
 
